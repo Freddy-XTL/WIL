@@ -6,8 +6,12 @@ function openDB() {
 
   request.onupgradeneeded = function (event) {
     db = event.target.result;
-    const objectStore = db.createObjectStore("users", { keyPath: "username" });
-    objectStore.createIndex("email", "email", { unique: true });
+
+    if (!db.objectStoreNames.contains("users")) {
+      const objectStore = db.createObjectStore("users", { keyPath: "username" });
+
+      objectStore.createIndex("email", "email", { unique: true });
+    }
   };
 
   request.onsuccess = function (event) {

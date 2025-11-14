@@ -1,26 +1,47 @@
 // login.js
-document.querySelector(".login-form").addEventListener("submit", function(e){
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
 
-    const username = this.querySelector('input[placeholder="Username"]').value.trim();
-    const password = this.querySelector('input[placeholder="Password"]').value.trim();
+    document.querySelector(".login-form").addEventListener("submit", function(e){
+        e.preventDefault();
 
-    const transaction = db.transaction(["users"], "readonly");
-    const store = transaction.objectStore("users");
+        const username = this.querySelector('input[placeholder="Username"]').value.trim();
+        const password = this.querySelector('input[placeholder="Password"]').value.trim();
 
-    const request = store.get(username);
+        const request = indexedDB.open("NovaTechDB", 1);
 
-    request.onsuccess = function() {
-        const user = request.result;
-        if(user && user.password === password){
-            alert("Login successful! Redirecting to dashboard...");
-            window.location.href = "../../Admin/dashboard.html";
-        } else {
-            alert("Invalid username or password.");
-        }
-    };
+        request.onsuccess = function(event) {
+            const db = event.target.result;
 
-    request.onerror = function() {
-        alert("Error occurred while trying to log in.");
-    };
+            const transaction = db.transaction(["users"], "readonly");
+            const store = transaction.objectStore("users");
+
+            const getUser = store.get(username);
+
+            getUser.onsuccess = function() {
+                const user = getUser.result;
+
+                if (user && user.password === password) {
+
+                    localStorage.setItem("LoggedInUser", username);
+
+                    alert("Login successful! Redirecting to dashboard...");
+
+                    window.location.href = "../Admin/dashboard.html";
+                } 
+                else {
+                    alert("Invalid username or password.");
+                }
+            };
+
+            getUser.onerror = function() {
+                alert("Error retrieving user data.");
+            };
+        };
+
+        request.onerror = function() {
+            alert("Database failed to open.");
+        };
+
+    });
+
 });
