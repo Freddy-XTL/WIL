@@ -11,11 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     request.onsuccess = function (event) {
         const db = event.target.result;
-
         const transaction = db.transaction(["users"], "readonly");
         const store = transaction.objectStore("users");
 
-        // ✅ Username is the primary key, no index needed
         const getRequest = store.get(loggedInUser);
 
         getRequest.onsuccess = function () {
@@ -26,11 +24,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Fill in the personal info page
-            document.getElementById("p-name").textContent = user.name;
-            document.getElementById("p-surname").textContent = user.surname;
-            document.getElementById("p-username").textContent = user.username;
-            document.getElementById("p-email").textContent = user.email;
+            // Populate form fields
+            document.getElementById("name").value = user.name;
+            document.getElementById("surname").value = user.surname;
+            document.getElementById("username").value = user.username; // read-only
+            document.getElementById("email").value = user.email;
         };
     };
+
+    // Save changes
+    const form = document.getElementById("personal-info-form");
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const updatedName = document.getElementById("name").value;
+        const updatedSurname = document.getElementById("surname").value;
+        const updatedEmail = document.getElementById("email").value;
+        const newPassword = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+
+        if (newPassword && newPassword !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        const tx = request.result.transaction(["users"], "readwrite");
+        const store = tx.objectStore("users");
+
+        const getRequest = store.get(loggedInUser);
+        getRequest.onsuccess = function () {
+            const user = getRequest.result;
+
+            user.name = updatedName;
+            user.surname = updatedSurname;
+            user.email = updatedEmail;
+            if (newPassword) user.password = newPassword; // Only update if new password is provided
+
+            const updateRequest = store.put(user);
+            updateRequest.onsuccess = function () {
+                alert("Information updated successfully!");
+            };
+            updateRequest.onerror = function () {
+                alert("Error updating information.");
+            };
+        };
+    });
 });

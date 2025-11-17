@@ -2,16 +2,18 @@
 <html lang="en">
 
 <head>
-  <title>NovaTech | Downloads</title>
+  <title>EduTrack | Downloads</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=photo" />
   <!-- Material Kit CSS -->
   <link href="assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
 
@@ -22,7 +24,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container">
       <a class="navbar-brand  text-black" href="dashboard.html" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_self">
-        NovaTech Digital
+        EduTrack
       </a>
       
     <ul class="navbar-nav navbar-nav-hover ms-auto">
@@ -34,25 +36,25 @@
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="uploads.html">
-      <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+      <i class="material-icons opacity-6 me-2 text-md">upload_file</i>
       Uploads
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="resources.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">school</i>
       Resources
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="personal-info.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">person</i>
       Personal Info
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="contact.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">contact_mail</i>
       Contact Us
     </a>
   </li>
@@ -63,16 +65,58 @@
   </nav>
   <!-- End Navbar -->
 
-<div class="container mt-5">
-    <h2>Personal Information</h2>
+  <div class="wrapper">
+    <div class="image">
+        <img src="images/default-avatar.webp" alt="Default profile picture">
+        <label for="file-path">
+            <span class="material-symbols-outlined">photo</span>
+        </label>
+        <input type="file" accept="image/jpeg, image/png, image/jpeg" id="file-path" class="user-file">
+    </div>
+  </div>
+<div class="container mt-5 personal-info-container">
+  <h2 class="text-center mb-4">Personal Information</h2>
+  
+  <form id="personal-info-form">
+    <div class="form-group mb-3">
+      <label for="name"><strong>Name</strong></label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+    </div>
 
-    <p><strong>Name:</strong> <span id="p-name"></span></p>
-    <p><strong>Surname:</strong><span id="p-surname"></span></p>
-    <p><strong>Username:</strong><span id="p-username"></span></p>
-    <p><strong>Email:</strong> <span id="p-email"></span></p>
+    <div class="form-group mb-3">
+      <label for="surname"><strong>Surname</strong></label>
+      <input type="text" class="form-control" id="surname" placeholder="Enter Surname">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="username"><strong>Username</strong></label>
+      <input type="text" class="form-control" id="username" readonly>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email"><strong>Email</strong></label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="password"><strong>New Password</strong></label>
+      <input type="password" class="form-control" id="password" placeholder="Enter new password">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="confirm-password"><strong>Confirm Password</strong></label>
+      <input type="password" class="form-control" id="confirm-password" placeholder="Confirm new password">
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
 </div>
+
 
 <script src="/Public/JS/db.js"></script>
 <script src="/Admin/JS/personal-info.js"></script>
+<script src="/Admin/JS/profile.js"></script>
   
 </body>

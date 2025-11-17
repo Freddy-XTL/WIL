@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <title>NovaTech | Uploads</title>
+  <title>EduTrack | Uploads</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -22,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <div class="container">
       <a class="navbar-brand  text-black" href="dashboard.html"  rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_self">
-        NovaTech Digital
+        EduTrack
       </a>
       
     <ul class="navbar-nav navbar-nav-hover ms-auto">
@@ -34,25 +35,25 @@
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="uploads.html">
-      <i class="material-icons opacity-6 me-2 text-md">view_day</i>
+      <i class="material-icons opacity-6 me-2 text-md">upload_file</i>
       Uploads
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="resources.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">school</i>
       Resources
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="personal-info.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">person</i>
       Personal Info
     </a>
   </li>
   <li class="nav-item mx-2">
     <a class="nav-link ps-2 d-flex align-items-center" href="contact.html">
-      <i class="material-icons opacity-6 me-2 text-md">article</i>
+      <i class="material-icons opacity-6 me-2 text-md">contact_mail</i>
       Contact Us
     </a>
   </li>
@@ -64,20 +65,32 @@
   <!-- End Navbar -->
 
 
-<main class="container mt-5">
-  <section class="upload-section text-center">
-    <h2 class="mb-4">Upload Your Files</h2>
-    <div class="input-group mb-3 justify-content-center">
-      <div class="input-group-prepend">
-  <button>
-    <span class="input-group-text custom-upload-label">Upload</span>
-  </button>
-</div>
-      <div class="custom-file">
-       <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" aria-label="Upload a file">
-    </div>
-  </section>
-</main>
+<main>
+    <h2 class="upload-header">Assignments to Upload</h2>
 
-  
+<table class="upload-table">
+  <tr>
+    <th>Assignment Name</th>
+    <th>Due Date</th>
+    <th>Upload</th>
+  </tr>
+  <tr>
+    <td>Geometry</td>
+    <td>12 November</td>
+    <td>
+      <input type="file"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Science</td>
+    <td>15 November</td>
+    <td>
+      <input type="file"/>
+    </td>
+  </tr>
+</table>
+
+  </main>
+
+<script src="/Admin/JS/validation.js"></script>
 </body>
