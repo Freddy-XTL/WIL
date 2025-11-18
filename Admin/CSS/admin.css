@@ -163,6 +163,14 @@ a:visited {
     line-height: 2px;
 }
 
+.pdf-container {
+    margin-bottom: 10px;
+}
+.pdf-container img {
+    height: 100px;
+    width: 100px;
+}
+
 .contact-container {
     display: flex;
     justify-content: center;
