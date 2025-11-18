@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Populate form fields
+
             document.getElementById("name").value = user.name;
             document.getElementById("surname").value = user.surname;
             document.getElementById("username").value = user.username; // read-only
@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     };
 
-    // Save changes
     const form = document.getElementById("personal-info-form");
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             user.name = updatedName;
             user.surname = updatedSurname;
             user.email = updatedEmail;
-            if (newPassword) user.password = newPassword; // Only update if new password is provided
+            if (newPassword) user.password = newPassword;
 
             const updateRequest = store.put(user);
             updateRequest.onsuccess = function () {
