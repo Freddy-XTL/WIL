@@ -1,12 +1,37 @@
+.dashboard-body {
+    background-color: #e2dbdb;
+}
+
 .downloads-body {
     background-color: antiquewhite;
 }
 
 .uploads-body {
-  background-color: #fdf6f0;
+  background-color: antiquewhite;
   font-family: 'Roboto', sans-serif;
   color: #333;
 }
+.card {
+    margin-bottom: 90px !important;
+}
+
+.upcoming-assignment-table {
+    margin: 0 auto 50px auto;
+    width: 70%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.upcoming-assignment-table th,
+.upcoming-assignment-table td {
+
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
 
 .upload-section {
   background-color: #fff;
@@ -140,12 +165,13 @@ table.upload-table tr:hover {
     margin-top: 10px;
 }
 
-.card {
+.resource-card {
     display: flex;
     flex-direction: row;
     gap: 15px;
     margin-bottom: 8px;
     padding: 15px;
+    background-color: white;
 }
 
 a:link {
@@ -225,5 +251,9 @@ a:visited {
 
 #file-path {
     display: none;
+}
+
+.footer {
+    background-color: #ffefef !important;
 }
 
