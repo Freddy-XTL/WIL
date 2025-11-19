@@ -253,6 +253,21 @@ a:visited {
     display: none;
 }
 
+.personal-info-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.personal-info-table td, th {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.form-group,
+.form-group input {
+    text-align: center !important;
+}
+
 .footer {
     background-color: #ffefef !important;
 }

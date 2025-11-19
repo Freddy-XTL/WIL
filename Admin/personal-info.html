@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>EduTrack | Downloads</title>
+  <title>EduTrack | Personal Info</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -78,28 +78,25 @@
 <div class="container mt-5 personal-info-container">
   <h2 class="text-center mb-4">Personal Information</h2>
   
+  <table class="personal-info-table">
+    <tr>
+        <th><label for="name"><strong>Name</strong></label></th>
+        <th><label for="surname"><strong>Surname</strong></label></th>
+        <th><label for="username"><strong>Username</strong></label></th>
+        <th><label for="email"><strong>Email</strong></label></th>
+    </tr>
+
+    <tr>
+        <td><input type="text" class="form-control" id="name" placeholder="Enter Name"></td>
+        <td><input type="text" class="form-control" id="surname" placeholder="Enter Surname"></td>
+        <td><input type="text" class="form-control" id="username" readonly></td>
+        <td><input type="email" class="form-control" id="email" placeholder="Enter Email"></td>
+    </tr>
+  </table>
   <form id="personal-info-form">
-    <div class="form-group mb-3">
-      <label for="name"><strong>Name</strong></label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
-    </div>
 
-    <div class="form-group mb-3">
-      <label for="surname"><strong>Surname</strong></label>
-      <input type="text" class="form-control" id="surname" placeholder="Enter Surname">
-    </div>
-
-    <div class="form-group mb-3">
-      <label for="username"><strong>Username</strong></label>
-      <input type="text" class="form-control" id="username" readonly>
-    </div>
-
-    <div class="form-group mb-3">
-      <label for="email"><strong>Email</strong></label>
-      <input type="email" class="form-control" id="email" placeholder="Enter Email">
-    </div>
-
-    <div class="form-group mb-3">
+    <div class="form-group mb-3"><br>
+        <h2 class="text-center mb-4">Password change</h2>
       <label for="password"><strong>New Password</strong></label>
       <input type="password" class="form-control" id="password" placeholder="Enter new password">
     </div>
