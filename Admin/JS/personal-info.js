@@ -24,10 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-
             document.getElementById("name").value = user.name;
             document.getElementById("surname").value = user.surname;
-            document.getElementById("username").value = user.username; // read-only
+            document.getElementById("username").value = user.username;
             document.getElementById("email").value = user.email;
         };
     };
@@ -42,9 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const newPassword = document.getElementById("password").value;
         const confirmPassword = document.getElementById("confirm-password").value;
 
-        if (newPassword && newPassword !== confirmPassword) {
-            alert("Passwords do not match!");
-            return;
+        const passwordRegex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
+        if (newPassword) {
+
+            if (newPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            if (!passwordRegex.test(newPassword)) {
+                alert("Password must be at least 8 characters long and include:\n- Uppercase\n- Lowercase\n- Number\n- Special character (!@#$%^&*)");
+                return;
+            }
         }
 
         const tx = request.result.transaction(["users"], "readwrite");
@@ -57,7 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
             user.name = updatedName;
             user.surname = updatedSurname;
             user.email = updatedEmail;
-            if (newPassword) user.password = newPassword;
+
+            if (newPassword) {
+                user.password = newPassword;
+            }
 
             const updateRequest = store.put(user);
             updateRequest.onsuccess = function () {
