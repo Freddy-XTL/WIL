@@ -258,7 +258,8 @@ a:visited {
     justify-content: center;
     align-items: center;
 }
-.personal-info-table td, th {
+.personal-info-table td, 
+.personal-info-table th {
     border-collapse: collapse;
     border: 1px solid black;
 }
